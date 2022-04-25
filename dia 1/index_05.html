@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Abre la consola del navegador :-)
+    <br> Vamos a comprobar el 'scope' de las variables usando 'var' y 'let'.
+
+    <script>
+        // Declaramos e inicializamos una variable 'global'
+        var global_1 = 1;
+    </script>
+
+    <script src="index_05.js"></script>
+    <script>
+        // Comprobamos que la edad declarada en index_05.js 'edad' no existe
+        if (typeof edad == 'undefined') {
+            console.log("En el HTML, edad no existe.");
+        }
+    </script>
+    <script src="index_05b.js"></script>
+</body>
+
+</html>
