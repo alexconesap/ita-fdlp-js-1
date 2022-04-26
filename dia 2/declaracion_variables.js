@@ -54,6 +54,6 @@ console.log(a);
   console.log(a);
 
   // Opción corta y bonita
-  let b = valido ? "Cierto" : "Falso";
+  let b = (valido && true) || true ? "Cierto" : "Falso";
   console.log(b);
 }

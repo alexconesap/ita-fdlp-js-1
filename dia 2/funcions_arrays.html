@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="mostraMes">Això està en blanc!</p>
+    <input type='button' onClick='mesHoy()' Value='Mes actual' />
+
+    <script>
+        function mesHoy() {
+            document.getElementById("mostraMes").innerHTML =
+                "Estamos en " + mesActual();
+        }
+
+        function mesActual() {
+            let meses = [
+                "Gener", "Febrer", "Març", "Abril", "Mai", "Juny", "Juliol",
+                "Agost", "Setembre", "Octobre", "Novembre", "Desembre"
+            ];
+            let fecha = new Date(); //Data ordinador
+
+            let mes = meses[
+                fecha.getMonth()
+            ];
+            return mes;
+        }
+    </script>
+
+</body>
+
+</html>
