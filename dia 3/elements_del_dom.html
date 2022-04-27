@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cas pràctic 2 - Extensió</title>
+</head>
+
+<body>
+    <p id="p1">Este es el p1</p>
+    <p id="p2">Este es el p2</p>
+    <p id="p3">Este es el p3</p>
+    <p id="p4">Este es el p4</p>
+    <div id="mi_div_numero_1">Esto es un div</div>
+
+    <input type="button" onclick="cadena()" value="Operació">
+    <script>
+        function cadena() {
+            let cadena = "Hola";
+            let complerta = " Mundo!";
+            document.getElementById('p2').innerHTML = cadena + complerta;
+            document.getElementById('p3').innerHTML = cadena + complerta;
+        }
+    </script>
+</body>
+
+</html>

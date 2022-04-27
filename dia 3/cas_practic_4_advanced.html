@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System props</title>
+</head>
+
+<body>
+    <script>
+        function sys_info() {
+            mostra(browser_name());
+            mostra(screen_resolution());
+        }
+
+        function browser_name() {
+            return 'Browser name: ' + navigator.appName + ' / ' + browser_detect_advanced();
+        }
+
+        function screen_resolution() {
+            // The size the browser' window can have if it is maximized (incl browser bars)
+            // let h = window.screen.availHeight;
+            // let w = window.screen.availWidth;
+
+            // Matches the screen resolution "as is"
+            let h = window.screen.height;
+            let w = window.screen.width;
+
+            // Real browser viewport
+            //let h = window.innerHeight;
+            //let w = window.innerWidth;
+            // Equivalents
+            //let w = document.documentElement.clientWidth;
+            //let h = document.documentElement.clientHeight;
+
+            return 'Screen resolution: ' + w + ' x ' + h;
+        }
+
+        function resized() {
+            console.log(screen_resolution());
+        }
+
+        function mostra(el_que) {
+            console.log(el_que);
+            //alert(el_que);
+        }
+
+        function browser_detect_v1() {
+
+            let userAgent = navigator.userAgent.toLowerCase();
+            let browserName;
+
+            if (userAgent.match(/chrome|chromium|crios/i) && !!window.chrome) {
+                browserName = "Chrome";
+            } else if (userAgent.match(/firefox|fxios/i)) {
+                browserName = "Firefox";
+            } else if (userAgent.match(/safari/i)) {
+                browserName = "Safari";
+            } else if (userAgent.match(/opr\//i) && !!window.opr) {
+                browserName = "Opera";
+            } else if (userAgent.match(/edge/i)) {
+                browserName = "Edge";
+            } else if (userAgent.match(/trident/i)) {
+                browserName = "MS IE";
+            } else if (userAgent.match(/edg/i)) {
+                browserName = "Edge (Chromium based)";
+            } else {
+                browserName = "Other";
+            }
+            return browserName;
+        }
+
+        function browser_detect_advanced() {
+            return (function(agent) {
+                switch (true) {
+                    case agent.indexOf("edge") > -1:
+                        return "MS Edge";
+                    case agent.indexOf("edg/") > -1:
+                        return "Edge (Chromium based)";
+                    case agent.indexOf("opr") > -1 && !!window.opr:
+                        return "Opera";
+                    case agent.indexOf("chrome") > -1 && !!window.chrome:
+                        return "Chrome";
+                    case agent.indexOf("trident") > -1:
+                        return "MS IE";
+                    case agent.indexOf("firefox") > -1:
+                        return "Mozilla Firefox";
+                    case agent.indexOf("safari") > -1:
+                        return "Safari";
+                    default:
+                        return "other";
+                }
+            })(window.navigator.userAgent.toLowerCase());
+        }
+
+        window.addEventListener("resize", resized);
+        //window.onresize = loaded;
+
+        sys_info();
+    </script>
+</body>
+
+</html>

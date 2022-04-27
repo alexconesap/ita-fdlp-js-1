@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cas pràctic 4 :: System props</title>
+</head>
+
+<body>
+    <script>
+        function sys_info() {
+            mostra(browser_name());
+            mostra(screen_resolution());
+        }
+
+        function browser_name() {
+            return `Browser name: ${navigator.appName}`;
+        }
+
+        function screen_resolution() {
+            let w = window.innerWidth;
+            let h = window.innerHeight;
+            return `Screen resolution ${w} x ${h}`;
+            // return 'Screen resolution: ' + w + ' x ' + h;
+        }
+
+        function mostra(el_que) {
+            console.log(el_que);
+            //alert(el_que);
+        }
+
+        sys_info();
+    </script>
+</body>
+
+</html>
