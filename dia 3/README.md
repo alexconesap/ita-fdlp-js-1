@@ -12,7 +12,7 @@
 
 - Events
 
-- Separació de responsabilitats: HTML / Scripting
+- Separació (no VUE/React/...) de responsabilitats dels programadors: HTML / Scripting
 
 ```HTML
 <input id="boto" type="button" onclick='la_meva_funcio' value="Executar">
@@ -40,16 +40,6 @@ Vs: "separation of concerns"
   }
 </script>
 ```
-
-- Condicionals més a fons
-
-  - https://itacademy.barcelonactiva.cat/course/view.php?id=78&section=2
-
-  - https://github.com/AraManjon/fdlp-2/blob/master/estructures-condicionals/condicionals-bones-practiques.md
-
-- Estructures repetitives i arrays
-
-  - https://itacademy.barcelonactiva.cat/course/view.php?id=78&section=3
 
 ## Exercicis
 
