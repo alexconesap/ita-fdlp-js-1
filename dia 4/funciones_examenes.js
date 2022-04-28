@@ -3,10 +3,32 @@ function valida_examen(nota) {
         return "Suspès";
     } else if (nota >= 5 && nota < 7) {
         return "Aprovat";
-    } else if (nota >= 7 && nota < 8) {
+    } else if (nota >= 7 && nota <= 8) {
         return "Notable";
     } else {
         return "Excel·lent";
+    }
+}
+
+function valida_examen2(nota) {
+    switch (nota) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+            return "Suspès";
+
+        case 5:
+        case 6:
+            return "Aprovat";
+
+        case 7:
+        case 8:
+            return "Notable";
+
+        default:
+            return "Excel·lent";
     }
 }
 
