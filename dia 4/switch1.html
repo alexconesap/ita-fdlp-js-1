@@ -13,8 +13,10 @@
     <script>
         let mes = prompt("Indica el mes ", "escribe un mes [1-12]");
         mes = Number(mes);
+
+        // eliminamos switch y lo movemos a la función trimestre_segun_el_mes()
         let trimestre = trimestre_segun_el_mes(mes);
-        // ...
+
         alert("El trimestre del mes " + mes + " és el " + trimestre);
     </script>
 </body>
