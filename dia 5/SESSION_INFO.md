@@ -4,6 +4,10 @@
 
 ## Sessió 5
 
+- Switch avançat
+
+  - https://ultimatecourses.com/blog/deprecating-the-switch-statement-for-object-literals
+
 - Estructures repetitives i arrays
 
   - https://itacademy.barcelonactiva.cat/course/view.php?id=78&section=3
