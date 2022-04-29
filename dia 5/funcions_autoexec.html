@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function x() {
+            return 'Hola!';
+        }
+
+        // Función auto-ejecutable
+        (function() {
+            console.log(x());
+        })()
+
+        // Paso de parámetros por valor
+        // El parámetro cuenta de esta función no se modificará
+        // El valor recibido se recibe como un valor y no 
+        // como una referencia a una variable.
+        // Si alteramos este parámetro NO se altera la variable
+        // recibida sino una copia.
+        function incrementa_contador(cuenta) {
+            // Incrementamos cuenta pero solo incrementamos
+            // la COPIA LOCAL de esta variable. NO la de origen.
+            cuenta = cuenta + 1;
+        }
+
+        let cuenta = 0;
+        console.log("1. El contador es " + cuenta);
+        incrementa_contador(cuenta);
+        incrementa_contador(cuenta);
+        incrementa_contador(cuenta);
+        console.log("2. El contador es " + cuenta);
+
+        // Paso de parámetros por referencia
+        // Lo mismo pero con arrays (objetos)
+        // En esta función modificaremos el contenido 
+        // del primer elemento del array
+        function sumar_en_array(numeros_referencia) {
+            numeros[0] = numeros[0] + 10;
+        }
+
+        let numeros = [0, 10, 20, 30];
+        console.log(numeros);
+        sumar_en_array(numeros);
+        sumar_en_array(numeros);
+        sumar_en_array(numeros);
+        console.log(numeros);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(M1) Exercici 1</title>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: row;">
+        <div style="display: flex; flex-direction: column;">
+            <label>Insert Number 1</label>
+            <input type="number" name="" id="number1">
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <label>Insert Number 2</label>
+            <input type="number" name="" id="number2">
+        </div>
+    </div>
+    <button onclick="calculate()">Submit</button>
+
+    <p id="error" style="color: red;"></p>
+    <div id="data"></div>
+
+    <script>
+        function calculate() {
+            const number1 = Number(document.getElementById('number1').value);
+            const number2 = Number(document.getElementById('number2').value);
+
+            // Verifiquem primer el possible error i sortim.
+            if (!Number.isInteger(number1) || !Number.isInteger(number2)) {
+                displayError();
+                return;
+            }
+
+            calculate_and_display(number1, number2);
+        }
+
+        function calculate_and_display(number1, number2) {
+            display_result(`El resultat de la suma és: ${calcSum(number1, number2)}`);
+            display_result(`El resultat de la resta és: ${calcRest(number1, number2)}`);
+            display_result(`El resultat de la multiplicació és: ${calcMult(number1, number2)}`);
+            display_result(`El resultat de la divisió és: ${calcDiv(number1, number2)}`);
+        }
+
+        function display_result(result_text) {
+            let nou_p = document.createElement("p");
+            nou_p.innerText = result_text;
+            document.getElementById('data').appendChild(nou_p);
+        }
+
+        function displayError() {
+            const errorEl = document.getElementById('error');
+            errorEl.innerText = `ERROR, insert a number with NO decimals`
+        }
+
+        function calcSum(num1, num2) {
+            return num1 + num2
+        }
+
+        function calcRest(num1, num2) {
+            return num1 - num2
+        }
+
+        function calcMult(num1, num2) {
+            return num1 * num2
+        }
+
+        function calcDiv(num1, num2) {
+            return num1 / num2
+        }
+    </script>
+</body>
+
+</html>

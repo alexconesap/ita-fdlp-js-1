@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Examples</title>
+</head>
+
+<body>
+
+    <script>
+        function getDrinkSwitch(type) {
+            var drink;
+            switch (type) {
+                case 'coke':
+                    drink = 'It is Coke';
+                    break;
+                case 'pepsi':
+                    drink = 'It is a Pepsi';
+                    break;
+                default:
+                    drink = 'Default item';
+            }
+            return drink;
+        }
+
+        function getDrink(bebida) {
+            const drinks = {
+                'coke': 'Coke',
+                'pepsi': 'Pepsi',
+                'lemonade': 'Lemonade',
+                'lemonadexx': 'Lemonadexx',
+                'por_defecto': 'Default item'
+            };
+            return 'The drink I chose was ' +
+                (drinks[bebida] || drinks['por_defecto']);
+        }
+
+        function getDrinkResumido1(bebida) {
+            return 'The drink I chose was ' + ({
+                'coke': 'Coke',
+                'pepsi': 'Pepsi',
+                'lemonade': 'Lemonade'
+            }[bebida] || 'Default item');
+        }
+
+        function getDrinkByFunction(bebida) {
+            const drinks = {
+                'coke': function() {
+                    return 'Coke';
+                },
+                'pepsi': function() {
+                    return 'Pepsi';
+                },
+                'lemonade': function() {
+                    return 'Lemonade';
+                },
+                'default': function() {
+                    return "Default item";
+                }
+            };
+
+            return (drinks[bebida] || drinks['default'])();
+        }
+
+        document.write('getDrinkSwitch("coke") => ' + getDrinkSwitch('coke') + '<br>');
+        document.write('getDrinkSwitch("pepe") => ' + getDrinkSwitch('pepe') + '<br>');
+        document.write('getDrinkResumido1("coke") => ' + getDrinkResumido1('coke') + '<br>');
+        document.write('getDrinkResumido1("pepe") => ' + getDrinkResumido1('pepe') + '<br>');
+        document.write('getDrink("coke") => ' + getDrink('coke') + '<br>');
+        document.write('getDrink("pepe") => ' + getDrink('pepe') + '<br>');
+        document.write('getDrinkByFunction("coke") => ' + getDrinkByFunction('coke') + '<br>');
+        document.write('getDrinkByFunction("pepe") => ' + getDrinkByFunction('pepe') + '<br>');
+    </script>
+</body>
+
+</html>
