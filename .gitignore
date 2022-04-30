@@ -1,0 +1,8 @@
+/.idea
+/.vscode
+/nbproject
+.vagrant
+.DS_Store
+vendor/
+node_modules/
+npm-debug.log
