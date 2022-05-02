@@ -1,120 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Màxims i condicionals</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        function isValidNumber(n) {
-            return !isNaN(n) && n > 0 && n < 199;
+      function isValidNumber(n) {
+        return !isNaN(n) && n > 0 && n < 199;
+      }
+
+      function readAge(num_persona) {
+        return Number(prompt(`Edat persona ${num_persona}`));
+      }
+
+      function readName(num_persona) {
+        return prompt(`Nom persona ${num_persona}`);
+      }
+
+      function showResult(r) {
+        alert(r);
+      }
+
+      function whoIsTheIaioestAdvanced(edat1, edat2, edat3, nom1, nom2, nom3) {
+        if (edat1 == edat2 && edat1 == edat3) {
+          return "Tots tenen la mateixa edat";
         }
 
-        function readAge(num_persona) {
-            return Number(prompt(`Edat persona ${num_persona}`));
+        let the_iaioest;
+        let edat_max = Math.max(edat1, edat2, edat3);
+
+        switch (true) {
+          case edat1 == edat2 && edat1 == edat_max:
+            return nom1 + " i " + nom2;
+          case edat1 == edat3 && edat1 == edat_max:
+            return nom1 + " i " + nom3;
+          case edat2 == edat3 && edat2 == edat_max:
+            return nom2 + " i " + nom3;
+          case edat1 == edat_max:
+            return nom1;
+          case edat2 == edat_max:
+            return nom2;
+          case edat3 == edat_max:
+            return nom3;
+        }
+      }
+
+      function whoIsTheIaioest(edat1, edat2, edat3, nom1, nom2, nom3) {
+        if (edat1 == edat2 && edat1 == edat3) {
+          return "Tots tenen la mateixa edat";
         }
 
-        function readName(num_persona) {
-            return prompt(`Nom persona ${num_persona}`);
+        let the_iaioest;
+        let edat_max = Math.max(edat1, edat2, edat3);
+
+        switch (true) {
+          case edat1 == edat_max:
+            return nom1;
+          case edat2 == edat_max:
+            return nom2;
+          case edat3 == edat_max:
+            return nom3;
         }
+      }
 
-        function showResult(r) {
-            alert(r);
-        }
+      function executeReal() {
+        let edat1 = readAge(1);
+        let edat2 = readAge(2);
+        let edat3 = readAge(3);
 
-        function whoIsTheIaioestAdvanced(edat1, edat2, edat3, nom1, nom2, nom3) {
-            if (edat1 == edat2 && edat1 == edat3) {
-                return "Tots tenen la mateixa edat";
-            }
+        if (
+          isValidNumber(edat1) &&
+          isValidNumber(edat2) &&
+          isValidNumber(edat3)
+        ) {
+          let nom1 = readName(1);
+          let nom2 = readName(2);
+          let nom3 = readName(3);
 
-            let the_iaioest;
-            let edat_max = Math.max(edat1, edat2, edat3);
-
-            switch (true) {
-                case (edat1 == edat2 && edat1 == edat_max):
-                    return nom1 + ' i ' + nom2;
-                case (edat1 == edat3 && edat1 == edat_max):
-                    return nom1 + ' i ' + nom3;
-                case (edat2 == edat3 && edat2 == edat_max):
-                    return nom2 + ' i ' + nom3;
-                case (edat1 == edat_max):
-                    return nom1;
-                case (edat2 == edat_max):
-                    return nom2;
-                case (edat3 == edat_max):
-                    return nom3;
-            }
-        }
-
-        function whoIsTheIaioest(edat1, edat2, edat3, nom1, nom2, nom3) {
-            if (edat1 == edat2 && edat1 == edat3) {
-                return "Tots tenen la mateixa edat";
-            }
-
-            let the_iaioest;
-            let edat_max = Math.max(edat1, edat2, edat3);
-
-            switch (true) {
-                case (edat1 == edat_max):
-                    return nom1;
-                case (edat2 == edat_max):
-                    return nom2;
-                case (edat3 == edat_max):
-                    return nom3;
-            }
-        }
-
-        function executeReal() {
-            let edat1 = readAge(1);
-            let edat2 = readAge(2);
-            let edat3 = readAge(3);
-
-            if (isValidNumber(edat1) && isValidNumber(edat2) && isValidNumber(edat3)) {
-                let nom1 = readName(1);
-                let nom2 = readName(2);
-                let nom3 = readName(3);
-
-                showResult(
-                    whoIsTheIaioestAdvanced(edat1, edat2, edat3, nom1, nom2, nom3)
-                );
-            } else {
-                showResult("Edats incorrectes");
-            }
-        }
-
-        function test(edat1, edat2, edat3, nom1, nom2, nom3) {
-            document.write(edat1, ' ', edat2, ' ', edat3, ' :: ', nom1, ' ', nom2, ' ', nom3);
-            document.write(" ==> ");
-            document.write(
-                whoIsTheIaioestAdvanced(edat1, edat2, edat3, nom1, nom2, nom3)
-            );
-            document.write('<br>');
-        }
-
-        function executeTests() {
-            test(1, 1, 1, "A", "B", "C");
-
-            test(1, 2, 3, "A", "B", "C");
-            test(3, 2, 1, "A", "B", "C");
-
-            test(1, 3, 1, "A", "B", "C");
-            test(3, 1, 3, "A", "B", "C");
-
-            test(3, 3, 1, "A", "B", "C");
-            test(1, 3, 3, "A", "B", "C");
-        }
-
-        // ENTRY POINT
-        if (false) {
-            executeReal();
+          showResult(
+            whoIsTheIaioestAdvanced(edat1, edat2, edat3, nom1, nom2, nom3)
+          );
         } else {
-            executeTests();
+          showResult("Edats incorrectes");
         }
-    </script>
-</body>
+      }
 
+      function test(edat1, edat2, edat3, nom1, nom2, nom3) {
+        document.write(
+          edat1,
+          " ",
+          edat2,
+          " ",
+          edat3,
+          " :: ",
+          nom1,
+          " ",
+          nom2,
+          " ",
+          nom3
+        );
+        document.write(" ==> ");
+        document.write(
+          whoIsTheIaioestAdvanced(edat1, edat2, edat3, nom1, nom2, nom3)
+        );
+        document.write("<br>");
+      }
+
+      function executeTests() {
+        test(1, 1, 1, "A", "B", "C");
+
+        test(1, 2, 3, "A", "B", "C");
+        test(3, 2, 1, "A", "B", "C");
+
+        test(1, 3, 1, "A", "B", "C");
+        test(3, 1, 3, "A", "B", "C");
+
+        test(3, 3, 1, "A", "B", "C");
+        test(1, 3, 3, "A", "B", "C");
+      }
+
+      // ENTRY POINT
+      if (false) {
+        executeReal();
+      } else {
+        executeTests();
+      }
+    </script>
+  </body>
 </html>

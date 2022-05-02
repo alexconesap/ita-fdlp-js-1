@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="Execute" onclick="execute()" />
+    <script>
+      function execute() {
+        execute_array([
+          (nom) => {
+            return "Hola! " + nom;
+          },
+          (nom) => {
+            return "Adios! " + nom;
+          },
+        ]);
+      }
+
+      function execute_array(las_funciones) {
+        console.log(las_funciones[0]("José"));
+        console.log(las_funciones[1]("María"));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const saludo_simple = (nom) => {
+        return "Hola " + nom;
+      };
+      const saludo_efusivo = (nom) => {
+        return "Hey! Qué pasa tron " + nom;
+      };
+      function saludo_matutino(nom) {
+        return "Pffff! " + nom;
+      }
+
+      function saludar(una_function, nom, edad) {
+        let resultado = una_function(nom, edad);
+        console.log(resultado);
+      }
+
+      // Callback como referencia a variable
+      saludar(saludo_simple, "Camilo!");
+      saludar(saludo_simple, "Camilo!");
+      saludar(saludo_simple, "Mario!");
+      saludar(saludo_simple, "Oriol!");
+      saludar(saludo_efusivo, "Yixin!");
+
+      // Callback como referencia a función
+      saludar(saludo_matutino, "Oriol!");
+
+      // Callback declarado como función directa
+      saludar((nom) => {
+        return "Hey, qué pasa " + nom + "?";
+      }, "Camilo!");
+
+      saludar(
+        (nom, edad) => {
+          return "Hey, qué pasa " + nom + "? Seguro que tienes " + edad + "?";
+        },
+        "Maria!",
+        10
+      );
+    </script>
+  </body>
+</html>

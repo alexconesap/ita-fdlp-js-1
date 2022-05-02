@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let alumnes = [];
+      alumnes.push("Pep");
+      alumnes.push("Paco");
+      alumnes.push("Aina");
+      alumnes.push("Lluïsa");
+      alumnes.push("Joan");
+      document.write(alumnes + "<br>");
+      document.write(alumnes[2] + "<br>");
+
+      alumnes.push("Pep"); // Adds to the end
+      document.write(alumnes + "<br>");
+
+      alumnes.splice(2, 0, "Laura"); // Adds a
+      document.write(alumnes + "<br>");
+      // or
+      alumnes.splice(2, 1, "Laura"); // Replaces 1 at the position
+      document.write(alumnes + "<br>");
+
+      for (let char of "Testing") {
+        document.write(char);
+      }
+
+      document.write("<br>");
+
+      "Testing".split().forEach((element) => {
+        document.write(element);
+      });
+    </script>
+  </body>
+</html>

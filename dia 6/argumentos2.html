@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
   <body>
     <script>
-      function sumar(...numeros) {
+      function sumar2() {
         let suma = 0;
-        for (let i = 0; i < numeros.length; i++) {
-          suma += numeros[i];
+        for (let i = 0; i < arguments.length; i++) {
+          suma += arguments[i];
         }
         return suma;
       }
 
-      console.log(sumar(1, 2, 3, 0, 3));
+      console.log(sumar2(1, 2, 3, 0, 3));
     </script>
   </body>
 </html>
