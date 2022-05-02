@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays y Listas</title>
+  </head>
+  <body>
+    <!-- Lista 'hardcoded' -->
+    <ul>
+      <li>Opción 1</li>
+      <li>Opción 2</li>
+    </ul>
+
+    <!-- Listas creadas por código javascript -->
+    <ul id="lista_for"></ul>
+    <ul id="lista_foreach"></ul>
+    <ul id="lista_foreach_arrow"></ul>
+
+    <script>
+      // Usando for para iterar los elementos del array recibido
+      function usando_for(elementos) {
+        let texto_en_scope = "";
+        let fLen = elementos.length;
+        for (let i = 0; i < fLen; i++) {
+          texto_en_scope += "<li>" + elementos[i] + "</li>";
+        }
+        return texto_en_scope;
+      }
+    </script>
+
+    <script>
+      // La variable debe declarase dentro del 'scope' del <script> porque
+      // será accesible tanto en la función mi_lista_foreach() como en el callback
+      // `callback_por_elemento` llamado por el foreach()
+      let texto_en_scope = "";
+
+      function usando_foreach_fn(elementos) {
+        elementos.forEach(callback_por_elemento);
+        return texto_en_scope;
+      }
+
+      function callback_por_elemento(el_elemento, index) {
+        texto_en_scope += "<li>" + el_elemento + "</li>";
+      }
+    </script>
+
+    <script>
+      function usando_foreach_arrow(elementos) {
+        // La variable 'text' podemos declararla dentro del 'scope' de la función
+        // mi_lista_con_arrow() porque el callback de foreach() también está en el
+        // mismo 'scope'
+        let text = "";
+        elementos.forEach((el_elemento, index) => {
+          text += "<li id='lista_" + index + "'>" + el_elemento + "</li>";
+        });
+        return text;
+      }
+    </script>
+
+    <script>
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      fruits.push("Papaya");
+
+      document.getElementById("lista_for").innerHTML = usando_for(fruits);
+      document.getElementById("lista_foreach").innerHTML =
+        usando_foreach_fn(fruits);
+      document.getElementById("lista_foreach_arrow").innerHTML =
+        usando_foreach_arrow(fruits);
+    </script>
+  </body>
+</html>
