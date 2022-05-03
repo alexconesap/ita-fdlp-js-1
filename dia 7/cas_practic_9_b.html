@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="persones_div"></div>
+    <input
+      type="button"
+      value="Cercar edat màxima"
+      onclick="execucio_algorisme()"
+    />
+    <script>
+      const MAX_PERSONES = 2;
+
+      // Creació dels elements dins del DOM de forma dinàmica
+      (function () {
+        function crea_input_nom(num) {
+          let div = document.getElementById("persones_div");
+
+          let label = document.createElement("label");
+          label.htmlFor = `nom_${num}`;
+          label.innerText = "Persona " + num;
+          div.appendChild(label);
+
+          let input = document.createElement("input");
+          input.type = "text";
+          input.id = `nom_${num}`;
+          input.placeholder = "Entri un nom";
+          input.required = true;
+
+          div.appendChild(input);
+        }
+
+        function crea_input_edat(num) {
+          let div = document.getElementById("persones_div");
+          let input = document.createElement("input");
+          input.type = "number";
+          input.id = `edat_${num}`;
+          input.placeholder = "Edat";
+          input.required = true;
+
+          div.appendChild(input);
+          div.appendChild(document.createElement("br"));
+        }
+
+        for (let i = 1; i <= MAX_PERSONES; i++) {
+          crea_input_nom(i);
+          crea_input_edat(i);
+        }
+      })();
+
+      function execucio_algorisme() {
+        let personas = [];
+
+        // Afegim dins l'array persones tots els noms i edats
+        // llegits.
+        for (let i = 1; i <= MAX_PERSONES; i++) {
+          personas.push([
+            document.getElementById(`nom_${i}`).value,
+            parseInt(document.getElementById(`edat_${i}`).value),
+          ]);
+        }
+
+        alert(whoIsTheIaioestAdvanced(personas));
+      }
+
+      function max_edat(persones) {
+        return persones.reduce((a, b) => {
+          // [1] conté l'edat. Per tant permutem els elements
+          // comparats a i b si l'edat d'a és més gran que l'edat
+          // de b
+          return a[1] > b[1] ? a : b;
+        })[1];
+      }
+
+      function same_edats(persones) {
+        // Comparem la primera edat (arr[0][1]) amb la resta
+        // d'edats de l'array. En altres paraules arr[0][1] és
+        // l'element/edat de mostra que comparem amb tots els
+        // altres elements.
+        //
+        // 'val' és cada element de l'array persones. Per tant
+        // és una persona concreta on l'edat és l'index [1]
+        return persones.every((val, i, arr) => val[1] == arr[0][1]);
+      }
+
+      function primera_persona_per_edat(persones, edat_buscada) {
+        // Retornem [0] donat que .filter ens retorna un array
+        // que contindrà l'element que tingui l'edat indicada
+        // a edat_buscada. Però el que volem no és un array
+        // que conté un element sinò l'element en sí mateix.
+        return persones.filter((v, i) => {
+          if (v[1] == edat_buscada) {
+            return true;
+          }
+        })[0];
+      }
+
+      function whoIsTheIaioestAdvanced(persones) {
+        if (same_edats(persones)) {
+          return "Tots tenen la mateixa edat";
+        }
+
+        let edat_max = max_edat(persones);
+
+        if (isNaN(edat_max)) {
+          return "Edat màxima invàlida";
+        }
+
+        let persona = primera_persona_per_edat(persones, edat_max);
+        return persona[0];
+
+        // O, directament:
+        // return primera_persona_per_edat(persones, edat_max)[0];
+      }
+    </script>
+  </body>
+</html>

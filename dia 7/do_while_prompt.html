@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Leer de teclado números hasta entrar el 0
+      // Al salir mostrar la suma de los números introducidos
+      let numero;
+      let suma = 0;
+      do {
+        numero = parseInt(prompt("Dime un número? (0 para salir)"));
+
+        if (isNaN(numero)) {
+          alert("Entra números!!!");
+          continue;
+        }
+        suma += numero;
+      } while (numero != 0);
+
+      alert("La suma es " + suma);
+    </script>
+  </body>
+</html>

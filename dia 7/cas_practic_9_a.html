@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Persona 1 -->
+    <label for="nom_1">Persona 1</label>
+    <input type="text" id="nom_1" placeholder="Entri un nom" required />
+    <input type="number" id="edat_1" placeholder="Edat" required />
+    <br />
+    <!-- Persona 2 -->
+    <label for="nom_2">Persona 2</label>
+    <input type="text" id="nom_2" placeholder="Entra un nom" required />
+    <input type="number" id="edat_2" placeholder="Edat" required />
+    <br />
+    <!-- Persona 3 -->
+    <label for="nom_3">Persona 3</label>
+    <input type="text" id="nom_3" placeholder="Entri un nom" required />
+    <input type="number" id="edat_3" placeholder="Edat" required />
+    <br />
+    <br />
+    <input type="button" value="Cercar edat màxima" onclick="edat_maxima()" />
+    <script>
+      function edat_maxima() {
+        let personas = [];
+
+        personas.push([
+          document.getElementById("nom_1").value,
+          document.getElementById("edat_1").value,
+        ]);
+        personas.push([
+          document.getElementById("nom_2").value,
+          document.getElementById("edat_2").value,
+        ]);
+        personas.push([
+          document.getElementById("nom_3").value,
+          document.getElementById("edat_3").value,
+        ]);
+
+        alert(whoIsTheIaioestAdvanced(personas));
+      }
+
+      function whoIsTheIaioestAdvanced(persones) {
+        edat1 = persones[0][1];
+        edat2 = persones[1][1];
+        edat3 = persones[2][1];
+
+        if (edat1 == edat2 && edat1 == edat3) {
+          return "Tots tenen la mateixa edat";
+        }
+
+        let the_iaioest;
+        let edat_max = Math.max(edat1, edat2, edat3);
+        let nom1 = persones[0][0];
+        let nom2 = persones[1][0];
+        let nom3 = persones[2][0];
+
+        switch (true) {
+          case edat1 == edat2 && edat1 == edat_max:
+            return nom1 + " i " + nom2;
+          case edat1 == edat3 && edat1 == edat_max:
+            return nom1 + " i " + nom3;
+          case edat2 == edat3 && edat2 == edat_max:
+            return nom2 + " i " + nom3;
+          case edat1 == edat_max:
+            return nom1;
+          case edat2 == edat_max:
+            return nom2;
+          case edat3 == edat_max:
+            return nom3;
+        }
+      }
+    </script>
+  </body>
+</html>

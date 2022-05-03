@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let fruits = [];
+
+      // Revisar: NO opera en el if()
+      //console.log(fruits instanceof Array);
+
+      if (Array.isArray(fruits)) {
+        fruits.push("Banana"); // 0
+        fruits.push("Apple"); // 1
+        fruits.push("Strawerry"); // 2
+        fruits.push("Lemon"); // 3
+        fruits.push("Mango"); // 4
+        console.log(fruits);
+
+        //fruits[2] = "Papaya";
+        //fruits.splice(2, 0, "Papaya");
+        //fruits.push("Papaya");
+
+        let fruits_copy = [...fruits];
+        console.log(fruits_copy);
+
+        console.log(fruits.sort().reverse());
+
+        for (let fruta of fruits) {
+          console.log(fruta);
+        }
+      }
+    </script>
+  </body>
+</html>
