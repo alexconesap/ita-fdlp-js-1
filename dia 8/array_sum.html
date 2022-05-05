@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let numeros = [1, 5, 2, 3, 4, 5];
+
+      let result = numeros.reduce((resultat_anterior, element_actual) => {
+        return resultat_anterior + element_actual;
+      }, 0);
+
+      console.log(result);
+    </script>
+
+    <script>
+      let numeros_a_multiplicar = [2, 4, 6, 8, 10];
+
+      numeros_a_multiplicar.map(function (num) {
+        return num * 2;
+      });
+
+      console.log(numeros_a_multiplicar); // 4, 8, 12, 16, 20
+    </script>
+  </body>
+</html>
