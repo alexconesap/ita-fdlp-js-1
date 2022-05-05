@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Crea un script que escrigui una pirámide de l’ 1 al 20 de la següent forma:
+    1<br />
+    22<br />
+    333<br />
+    4444<br />
+    55555<br />
+    666666<br />
+    ... <br />
+    <hr />
+    <script>
+      piramide_numeros(20);
+
+      function piramide_numeros(max) {
+        for (let i = 1; i <= max; i++) {
+          document.write(`${i}`.repeat(i));
+          document.write("<br>");
+        }
+      }
+    </script>
+  </body>
+</html>

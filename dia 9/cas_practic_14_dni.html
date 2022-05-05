@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcul lletra DNI</title>
+  </head>
+  <body>
+    Realiza un script que calculi el valor de la lletra d’un número de DNI.
+    <ul>
+      <li>El número ha d’estar comprès entre 0 i 99999999</li>
+      <li>
+        Calcular el remanent (“resto”) de la divisió sencera entre el número i
+        el número 23
+      </li>
+      <li>
+        Segons el resultat, de 0 a 22, li correspondrà una lletra: T, R, W, A,
+        G, M, Y, F, P, D, X, B, N, J, Z, S, Q, V, H, L, C, K, E
+      </li>
+      <li>
+        Si no s’entra un número vàlid es mostrarà amb un alert i es tornarà a
+        preguntar.
+      </li>
+      <li>
+        Es repetirà el procés fins que l’usuari premi «cancelar» a la pregunta
+        (“Entrar un altre DNI?”)
+      </li>
+    </ul>
+    <br />
+
+    <button onclick="executa()">Executar codi</button>
+
+    <script>
+      function executa() {
+        do {
+          let dni = prompt("Entra un DNI?");
+          if (dni != null && dni.trim() !== "") {
+            mostra_dni(dni);
+          }
+        } while (confirm("Entrar un altre DNI?"));
+      }
+
+      function mostra_dni(dni) {
+        let letra = get_lletra_dni(dni);
+        if (letra == "") {
+          alert("El DNI " + dni + " no es correcte");
+          return;
+        }
+        alert("DNI resultant " + dni + letra);
+      }
+
+      function get_lletra_dni(num_dni_original) {
+        num_dni = parseInt(num_dni_original);
+
+        if (isNaN(num_dni) || num_dni < 0 || num_dni > 99999999) {
+          return "";
+        }
+
+        const letras = [
+          "T",
+          "R",
+          "W",
+          "A",
+          "G",
+          "M",
+          "Y",
+          "F",
+          "P",
+          "D",
+          "X",
+          "B",
+          "N",
+          "J",
+          "Z",
+          "S",
+          "Q",
+          "V",
+          "H",
+          "L",
+          "C",
+          "K",
+          "E",
+        ];
+
+        let letra = num_dni % 23;
+        return letras[letra];
+      }
+    </script>
+  </body>
+</html>
