@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aleatoris sense repeticions (Bossa)</title>
+  </head>
+  <body>
+    Crear un script que generi 30 números aleatoris entre 1 i 99 però que no en
+    repeteixi cap.
+    <br />
+    <script>
+      const numerets = getAleatorisSenseRepeticio_v2(30, 1, 99);
+      displayArray(numerets);
+
+      /**
+       * Genera `quants` números aleatoris entre 'min' i 'max'
+       *
+       * @param {number} quants Nombre de números aleatoris a crear
+       * @param {number} min Número mínim a considerar
+       * @param {number} max Número màxim a considerar
+       *
+       * @return number[]
+       * @throws Error
+       */
+      function getAleatorisSenseRepeticio_v2(quants, min, max) {
+        if (quants > max) {
+          throw new Error(
+            `Impossible crear ${quants} numeros sense repeticions si el número màxim és ${max}`
+          );
+        }
+
+        // Creem un array amb el rang de nombres (ex. 1..99)
+        // const tots = new Array(max - min + 1);
+        // for (let i = 0; i < tots.length; i++) {
+        //   tots[i] = min + i;
+        // }
+        const tots = new Array(max - min + 1)
+          .fill(1)
+          .map((num, index) => num + index);
+
+        console.log(
+          `El nombre d'elements a l'array "tots" ABANS de l'execució és ${tots.length}`
+        );
+
+        const resultats = [];
+        for (let i = 0; i < quants; i++) {
+          // El que fem 'aleatori' és el número d'index dins de l'array tots
+          // Ho fem entre 0 i el número actual d'elements
+          let alea = getNumAleatori(0, tots.length - 1);
+
+          // Afegim el número obtingut a l'array de resultats
+          resultats.push(tots[alea]);
+
+          // Eliminem el número obtingut (tots passa a tenir un element menys)
+          tots.splice(alea, 1);
+        }
+
+        console.log(
+          `El nombre d'elements a l'array "tots" DESPRES de l'execució és ${tots.length}`
+        );
+
+        return resultats;
+      }
+
+      /**
+       * Genera un número aleatori entre `min` i `max`
+       *
+       * @param {number} min
+       * @param {number} max
+       * @return number
+       */
+      function getNumAleatori(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+
+      /**
+       * Mostra per pantalla els números continguts a l'array 'apareguts'
+       *
+       * @param {array} apareguts
+       * @return void
+       */
+      function displayArray(apareguts) {
+        apareguts.forEach((num) => {
+          document.write(num + "<br>");
+        });
+      }
+    </script>
+  </body>
+</html>
