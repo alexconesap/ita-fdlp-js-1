@@ -15,23 +15,25 @@
         * Si no s’entra un número vàlid es mostrarà amb un alert i es tornarà a preguntar.
         * Es repetirà el procés fins que l’usuari premi «cancelar» a la pregunta (“Entrar un altre DNI?”)
     -->
-    <p id="error"></p>
-    <h3 id="resultado"></h3>
-
     <input type="text" id="numdni" />
     <input type="button" value="Calcular DNI con input" onclick="dni_input()" />
-
+    <br />
+    <br />
     <input
       type="button"
       value="Calcular DNI con prompt"
       onclick="dni_prompt()"
     />
 
+    <p style="color: red" id="error"></p>
+    <h4 id="resultado"></h4>
+
     <script src="letras_dni.js"></script>
 
     <script>
       function dni_input() {
         asignaLetraADni(document.getElementById("numdni").value);
+        document.getElementById("numdni").value = "";
       }
 
       function dni_prompt() {
@@ -51,10 +53,11 @@
 
         const letra = dame_letra(dni_numero);
 
-        muestra_resultado(letra);
+        muestra_resultado(dni + letra);
       }
 
       function muestra_resultado(el_que) {
+        document.getElementById("error").innerHTML = "";
         document.getElementById("resultado").innerHTML += el_que + "<br>";
         //console.log(el_que);
       }
@@ -67,7 +70,11 @@
 
       function validarNumeroIntroducido(dni_entrado) {
         let dni_numerico = parseInt(dni_entrado);
-        if (dni_numerico < 0 || dni_numerico > 99999999) {
+        if (
+          isNaN(dni_numerico) ||
+          dni_numerico < 0 ||
+          dni_numerico > 99999999
+        ) {
           return -1;
         }
         return dni_numerico;
