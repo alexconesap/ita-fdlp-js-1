@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNI</title>
+  </head>
+  <body>
+    <!--
+        Realiza un script que calculi el valor de la lletra d’un número de DNI.
+        * El número ha d’estar comprès entre 0 i 99999999
+        * Calcular el remanent (“resto”) de la divisió sencera entre el número i el número 23.
+        * Segons el resultat, de 0 a 22, li correspondrà una lletra: T, R, W, A, G, M, Y, F, P, D, X, B, N, J, Z, S, Q, V, H, L, C, K, E
+        * Si no s’entra un número vàlid es mostrarà amb un alert i es tornarà a preguntar.
+        * Es repetirà el procés fins que l’usuari premi «cancelar» a la pregunta (“Entrar un altre DNI?”)
+    -->
+    <p id="error"></p>
+    <h3 id="resultado"></h3>
+
+    <input type="text" id="numdni" />
+    <input type="button" value="Calcular DNI con input" onclick="dni_input()" />
+
+    <input
+      type="button"
+      value="Calcular DNI con prompt"
+      onclick="dni_prompt()"
+    />
+
+    <script src="letras_dni.js"></script>
+
+    <script>
+      function dni_input() {
+        asignaLetraADni(document.getElementById("numdni").value);
+      }
+
+      function dni_prompt() {
+        asignaLetraADni(leer_dni_de_teclado());
+      }
+
+      function leer_dni_de_teclado() {
+        return prompt("Dime un DNI");
+      }
+
+      function asignaLetraADni(dni) {
+        let dni_numero = validarNumeroIntroducido(dni);
+        if (dni_numero == -1) {
+          mostrar_error("El DNI no es válido");
+          return;
+        }
+
+        const letra = dame_letra(dni_numero);
+
+        muestra_resultado(letra);
+      }
+
+      function muestra_resultado(el_que) {
+        document.getElementById("resultado").innerHTML += el_que + "<br>";
+        //console.log(el_que);
+      }
+
+      function dame_letra(dni) {
+        const letras = letras_del_dni_spanish();
+        return letras[dni % 23];
+        //return letras_del_dni_spanish()[dni % 23];
+      }
+
+      function validarNumeroIntroducido(dni_entrado) {
+        let dni_numerico = parseInt(dni_entrado);
+        if (dni_numerico < 0 || dni_numerico > 99999999) {
+          return -1;
+        }
+        return dni_numerico;
+      }
+
+      function mostrar_error(texto) {
+        document.getElementById("error").innerHTML = texto;
+        //alert(texto);
+      }
+    </script>
+  </body>
+</html>
