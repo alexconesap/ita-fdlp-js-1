@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comprendiendo los Arrays</title>
+  </head>
+  <body>
+    <p>
+      Mostrar una hoja de drive donde en cada fila vamos a incluir información
+      de un país.
+    </p>
+
+    <p>
+      En la siguiente explicación vamos a usar las columnas para describir
+      características de una fila:
+    </p>
+    <p>- Nombre del país, población, capital</p>
+
+    <script>
+      let spain = ["Spain", 49_000_000, "Madrid"];
+      let italy = ["Italy", 59_000_000, "Rome"];
+      let france = ["France", 69_000_000, "Paris"];
+
+      let paises_con_vars = [spain, italy, france];
+
+      let paises_directo = [
+        ["Spain", 49_000_000, "Madrid"],
+        ["Italy", 59_000_000, "Rome"],
+        ["France", 69_000_000, "Paris"],
+      ];
+
+      // La capital pasará ahora a tener más detalle: nombre, habitantes
+      let paises_mas_detalle = [
+        ["Spain", 49_000_000, ["Madrid", 2_500_000]],
+        ["Italy", 59_000_000, ["Rome", 3_400_000]],
+        ["France", 69_000_000, ["Paris", 4_400_000]],
+      ];
+
+      // Inicialización de variables según un elemento del array
+      const [nombre, poblacion, capital] = paises_directo[0];
+    </script>
+  </body>
+</html>

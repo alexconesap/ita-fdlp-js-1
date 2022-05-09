@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC-TAC-TOE</title>
+</head>
+<body>
+
+    <!--
+    // input row
+    // input column
+    // input buton >>> play()
+    // div board_table 
+    -->
+    <table id="tablero_pantalla" border="1">
+        <tr> <td> </td> <td> </td> <td> </td> </tr>  
+        <tr> <td> </td> <td> </td> <td> </td> </tr>  
+        <tr> <td> </td> <td> </td> <td> </td> </tr>  
+    </table>
+
+    <script>
+        let board = [
+            //0  1   2
+            ['X', 'O', ''],  // 0
+            ['', '', ''],  // 1
+            ['', '', ''],  // 2
+        ];
+
+        let board_2d = [
+            'X', 'O', '', // 0 1 2
+            '', '', '', // 3 4 5
+            '', '', ''  // 6 7 8
+        ];
+        let winners_2d = [
+           [0, 1, 2], // 
+           [3, 4, 5], // 
+           [6, 7, 8], // 
+           // ...
+           [0, 4, 8],
+           [2, 4, 6],
+        ];
+
+        // board_positions_winners
+        // 0,0  0,1  0,2
+        // 1,0  1,1  1,2
+        // 2,0  2,1  2,2
+        // columnas
+        // ...
+        // diagonales
+        // 0,0  1,1  2,2
+        // 0,2  1,1  2,0
+
+        let winners = [
+            [ [0, 0], [0,1], [0,2] ],
+            [ [1, 0], [1,1], [1,2] ],
+            [ [2, 0], [2,1], [2,2] ],
+            // columnas
+            // ...
+            // diagonales
+            [ [0, 0], [1,1], [2,2] ],
+            [ [0, 2], [1,1], [2,0] ],
+        ];
+
+        function checkWinner() {
+            let winner = '';
+
+            // Comprobamos sobre el tablero si alguna
+            // combinación de coordenadas ganadoras
+            // contiene el mismo elemento. Ojo con los
+            // elementos no asignados todavía.
+            winners.every(coords =>
+                if (check board[coords[...]]) {
+                    winner = board[coords[...]];
+                    // salimos de 'every' retornando false
+                    return false;
+                }
+            );
+
+            return winner;
+        }
+    </script>
+</body>
+</html>
