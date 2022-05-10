@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POO sin class</title>
+  </head>
+  <body>
+    <script>
+      function Pais(nombre, people) {
+        return {
+          name: nombre,
+          population: people,
+          showInfo: function () {
+            return `${this.name} tiene ${this.population} habitantes`;
+          },
+        };
+      }
+      let francia = new Pais("France", 49_000_000);
+      console.log(francia.showInfo());
+
+      function Pais2(nombre, people) {
+        this.name = nombre;
+        this.population = people;
+        this.showInfo = function () {
+          return `${this.name} tiene ${this.population} habitantes`;
+        };
+      }
+      let francia2 = new Pais2("France", 49_000_000);
+      console.log(francia.showInfo());
+    </script>
+  </body>
+</html>

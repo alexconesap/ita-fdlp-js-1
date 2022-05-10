@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POO polimorfisme</title>
+  </head>
+  <body>
+    <script>
+      class Instrument {
+        #tipus;
+        marca;
+        constructor(tipus, marca) {
+          this.#tipus = tipus;
+          this.marca = marca;
+        }
+        tocarNota(nota) {
+          this.#mostrar('Algo');
+          return this.#tipus + " està tocant la nota " + nota;
+        }
+        tocarAcord(acord) {
+          return this.#tipus + " està tocant l'acord " + acord;
+        }
+        #mostrar(que) {
+          console.log(que);
+        }
+        getTipus() {
+          return this.#tipus;
+        }
+        setTipus(valor) {
+          if (typeof valor != 'string') {
+            throw new Error("Tipus no soportat!");
+          }
+          this.#tipus = valor;
+        }
+      }
+
+      class InstrumentCorda extends Instrument {
+        constructor(fabricante) {
+           super("Violín", fabricante);
+        }
+        tocarNota(nota) {
+          console.log("Llamamos al padre (o no!)");
+          return super.tocarNota(nota + " a sac!");
+        }
+      }
+
+      class InstrumentVent extends Instrument {
+        constructor(fabricante) {
+          super("Flauta", fabricante);
+        }
+      }
+
+      let i1 = new InstrumentCorda("Yamaha");
+      let i2 = new InstrumentVent("Thomson");
+      console.log(i1.tocarAcord("1")); // Violín està tocant l'acord 1
+      console.log(i1.tocarNota("Do")); // Violín està tocant la nota Do
+      console.log(i2.tocarNota("Fa")); // Flauta està tocant la nota Fa
+    </script>
+  </body>
+</html>
