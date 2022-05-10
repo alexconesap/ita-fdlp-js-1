@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays con objetos</title>
+</head>
+<body>
+    <script>
+        let france = {
+            name: 'France',
+            population: 59_000_000
+        }
+        france.name;
+        france.population;
+
+        let paises = [
+            france
+        ];
+        paises[0].name;
+
+        let france_array = [
+            'France',
+            59_000_000
+        ]
+        france_array[0];
+        france_array[1];
+        let paises_array = [
+            france_array
+        ];
+        paises[0][0];
+
+        let spain = {
+            name: 'Spain',
+            population: 49_000_000
+        }
+        </script>
+</body>
+</html>
