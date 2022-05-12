@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank example</title>
+  </head>
+  <body>
+    <!-- 
+        Create the UI components for reading:
+         'amount', 'date', 'transaction type'
+        
+        Create the UI buttons for:
+        - call deposit()
+        - call withdraw()
+        - call list()
+     -->
+    <script>
+      class Transaction {
+        constructor(date, amount, balance, type) {
+          this.date = date;
+          this.amount = amount;
+          this.balance = balance;
+          this.type = type;
+        }
+      }
+
+      const transactions = [];
+
+      function deposit() {
+        let t1 = new Transaction(new Date(), 10, 10, "deposit");
+        transactions.push(t1);
+      }
+
+      function withdraw() {
+        let t1 = new Transaction(new Date(), 10, 10, "withdraw");
+        transactions.push(t1);
+      }
+
+      function list() {
+        // iterate the transactions array and display results
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Herencia</title>
+  </head>
+  <body>
+    <script>
+      class Animal {
+        static counter = 0;
+        constructor(specie, subspecie, race, alias) {
+          this.specie = specie?.toLowerCase() || "";
+          this.subspecie = subspecie?.toLowerCase() || "";
+          this.race = race?.toLowerCase() || "";
+          this.alias = alias?.toLowerCase() || "";
+
+          this.aggressiveness_level = 0;
+          this.age = 0;
+          this.feed_sensation = 0;
+
+          Animal.counter++;
+        }
+        eat(feed_level = 1) {
+          this.feed_sensation += feed_level;
+          console.log(`Animal ${this.alias}: eat => ${this.feed_sensation}`);
+        }
+        info() {
+          console.log(
+            "Alias: " + this.alias,
+            "Aggressiveness Level: " + this.aggressiveness_level,
+            "Feed Sensation: " + this.feed_sensation
+          );
+        }
+      }
+      class Can extends Animal {
+        constructor(subspecie, race, alias) {
+          super("cannis", subspecie, race, alias);
+          this.aggressiveness_level = 4;
+        }
+      }
+      class Dog extends Can {
+        // Constructor overriding
+        constructor(race, alias) {
+          super("dog", race, alias);
+          this.aggressiveness_level = 5;
+        }
+        // Method overriding
+        eat() {
+          super.eat(3);
+          console.log(`Dog ${this.alias}: eat => ${this.feed_sensation}`);
+        }
+      }
+      class Poodle extends Dog {
+        constructor(alias) {
+          super("poddle", alias);
+          this.aggressiveness_level = 2;
+        }
+      }
+      //
+      class Wolf extends Can {
+        constructor(race = "generic", alias = "N/A") {
+          super("lupus", race, alias);
+          this.aggressiveness_level = 8;
+        }
+        // Method overriding
+        eat() {
+          super.eat(2);
+          console.log(`Wolf ${this.alias}: eat => ${this.feed_sensation}`);
+        }
+      }
+
+      class Feline extends Animal {
+        constructor(subspecie, race, alias) {
+          super("felidae", subspecie, race, alias);
+          this.aggressiveness_level = 5;
+        }
+      }
+      class DomesticCat extends Feline {}
+      class Lion extends Feline {}
+      class Leopard extends Feline {}
+      class Tiger extends Feline {}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC-TAC-TOE</title>
+</head>
+<body>
+    <script>
+        let board = new Array(9).fill("");
+
+        // 0 1 2 == X O X
+        // 3 4 5 == X O X
+        // 6 7 8 == O O X
+        let winners = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            // Cols
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            // diag
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let ivaInclos = true;
+      let preu = 12;
+      let descompte = 0.1;
+      let dia = "dimecres";
+      let hora = 12;
+
+      if (
+        diaYHoraValidoDto(dia, hora) &&
+        precioValidoDescuentos(preu, descompte)
+      ) {
+        console.log("Podemos aplicar el descuento");
+      }
+
+      // Que el precio, con el descuento recibido aplicado,
+      // sea inferior a 10€
+      function precioValidoDescuentos(preu, descompte) {
+        console.log("Precio válido?");
+        return (preu - (preu * descompte)) < 10;
+      }
+
+      function diaYHoraValidoDto(dia, hora) {
+        return diaValidoDescuento(dia) || horaValidaDescuentos(hora);
+      }
+
+      function horaValidaDescuentos(hora) {
+        console.log("Hora valida?");
+        return hora <= 12;
+      }
+
+      function diaValidoDescuento(dia) {
+        console.log("Dia válido?");
+        return dia == "dilluns" || dia == "dimecres";
+      }
+    </script>
+  </body>
+</html>

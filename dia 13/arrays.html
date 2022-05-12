@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const MAX_NOMBRES = 7;
+
+        let nombres = [
+            'Manuel', 
+            'Silvia', 
+            'Paulo', 
+            'Oriol', 
+            'Mario', 
+            'Miriam', 
+            'Alex'
+        ];
+
+        // for (let i=0; i < nombres.length; i++) {
+        //     console.log(nombres[i]);
+        // }
+
+        let personas = [
+            ['Manuel'],
+            ['Silvia', 25],
+            ['Paulo', 20, 'Sevilla'],
+        ];
+        for (let i=0; i < personas.length; i++) {
+            let persona_actual = personas[i];
+            for (let i=0; i < persona_actual.length; i++) {
+                console.log(persona_actual[i]);
+            }
+        }
+
+        personas.forEach(e => console.log(e))
+    </script>
+</body>
+</html>

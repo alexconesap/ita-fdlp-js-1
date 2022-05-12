@@ -2,20 +2,9 @@
 
 > IT Academy - Barcelona Activa
 
-## Sessió 13
+## Sessió 14
 
-- Clases, variables, y constantes: upper/lower?
-
-- Case types:
-
-  1 - camelCase
-  2 - snake_case
-  3 - kebab-case
-  4 - PascalCase
-
-- Repaso: Uso de arrays con ejemplos prácticos
-
-- Corrección ejercicio TIC-TAC-TOE
+- Repaso de || &&
 
 - Repaso: uso de "this"
 

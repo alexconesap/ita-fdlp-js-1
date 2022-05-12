@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIC-TAC-TOE v1.0</title>
+    <style>
+      table,
+      td {
+        border: 0px solid black;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border-radius: 5px;
+        table-layout: fixed;
+      }
+      td {
+        background-color: #ccc;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Now plays <span id="now_plays">?</span></h2>
+    <input type="number" id="cell" placeholder="Cell number" />
+    <br />
+    <input type="button" value="Play" onclick="play()" />
+    <br />
+    <table id="ui_board">
+      ...
+    </table>
+
+    <script>
+      let turno = "X";
+      let board = new Array(9).fill(1).map((e,i) => e + i);
+      // 1 2 3
+      // 4 5 6
+      // 7 8 9
+      let winners = [
+        // filas
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        // columnas
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+      ];
+
+      function draw_board() {
+        let filled_board = "";
+
+        board.forEach((row, i) => {
+            filled_board += ([0,3,6].includes(i) ? "<tr>" : "");
+            filled_board += `<td>${row}</td>`;
+            filled_board += ([2,5,8].includes(i) ? "</tr>" : "");
+        });
+
+        ui_board.innerHTML = filled_board;
+      }
+
+      draw_board();
+      draw_current();
+
+      function draw_current() {
+        document.getElementById('now_plays').innerHTML = turno;
+      }
+
+      function play() {
+        let v = document.getElementById('cell').value;
+        // comprobar si b ya se ha usado
+
+        turno = turno == 'X' ? 'O' : 'X';  
+        draw_current();
+      }
+    </script>
+  </body>
+</html>

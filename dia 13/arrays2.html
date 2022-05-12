@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>         
+</head>
+<body>
+    <script>
+        let personas = [
+            //  0
+            ['Manuel'], // 0
+            //  0       1
+            ['Silvia', 25], // 1
+            //  0      1       2
+            ['Paulo', 20, 'Sevilla'], // 2
+        ];
+
+        // Filtrar los mayores de 20 años
+        let resultados = [];
+        for (let i=0; i < personas.length; i++) {
+            let persona_actual = personas[i];
+            if (persona_actual[1] > 20) {
+                resultados.push(persona_actual);
+            }
+        }
+        console.log(resultados);
+
+        // Filtrar los mayores de 20 años - Opción filter()
+        let resultados2 = personas.filter(e => e[1] > 20);
+        console.log(resultados2);
+
+        // 
+    </script>
+</body>
+</html>
