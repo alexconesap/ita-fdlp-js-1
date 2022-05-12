@@ -26,9 +26,9 @@ Extensions recomanades:
 
 - Prettier - Code Formatter https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 
-### Node.js
+### Node.js (OPCIONAL)
 
-Per tal d'anar anticipant-nos una mica als itineraris posteriors (React, Vue, ...) els exercicis que no facin referència a objectes i mètodes propis del navegador (window, document, alert, prompt, ...) els podeu anar provant amb NodeJs.
+Per tal d'entendre com funciona Javascript fora del navegador, els exercicis que no facin referència a objectes i mètodes propis del mateix (window, document, alert, prompt, ...) els podeu anar provant amb NodeJs.
 
 Descàrrega:
 
