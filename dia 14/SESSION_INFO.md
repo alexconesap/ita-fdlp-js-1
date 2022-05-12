@@ -4,9 +4,19 @@
 
 ## Sessió 14
 
-- Repaso de || &&
+- Repàs de || &&
 
-- Repaso: uso de "this"
+- Refactoring cap a funcions de condicions if() complexes
+
+- Repàs: us de "this", "super", ...
+
+- Repàs: POO (construcció dinàmica classes Animal, Can, Dog...)
+
+- Repàs: ús de constructors
+
+- Exercicis: TIC-TAC-TOE
+
+- Exercicis: BANK
 
 ## Exercicis / Casos pràctics
 

@@ -28,12 +28,20 @@
 
       const transactions = [];
 
+      function calcularSaldo() {
+        // Si no hay transacciones el saldo es 0
+        // Si las hay, el saldo será el último saldo 
+        return 0;
+      }
+
       function deposit() {
+        let saldo = calcularSaldo();
         let t1 = new Transaction(new Date(), 10, 10, "deposit");
         transactions.push(t1);
       }
 
       function withdraw() {
+        let saldo = calcularSaldo();
         let t1 = new Transaction(new Date(), 10, 10, "withdraw");
         transactions.push(t1);
       }

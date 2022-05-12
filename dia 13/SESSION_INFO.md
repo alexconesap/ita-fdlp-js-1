@@ -4,7 +4,7 @@
 
 ## Sessió 13
 
-- Clases, variables, y constantes: upper/lower?
+- Classes, variables, y constants: upper/lower?
 
 - Case types:
 
@@ -13,11 +13,11 @@
   3 - kebab-case
   4 - PascalCase
 
-- Repaso: Uso de arrays con ejemplos prácticos
+- Repàs: Us d' arrays amb exemples pràctics
 
-- Corrección ejercicio TIC-TAC-TOE
+- Correcció exercici TIC-TAC-TOE
 
-- Repaso: uso de "this"
+- Repàs: us de "this"
 
 ## Exercicis / Casos pràctics
 
