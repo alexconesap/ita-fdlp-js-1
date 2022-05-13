@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="date" id="data" />
+    <input type="number" id="valor" />
+    <br />
+    <input type="button" value="Ingressar" onclick="ui_ingressar()" />
+    <input type="button" value="Retirar" onclick="ui_retirar()" />
+    <input type="button" value="Llistar" onclick="ui_llistar()" />
+    <br />
+    <div id="llistat"></div>
+    <script src="bank.js"></script>
+    <script>
+      let cuenta = new Cuenta();
+
+      function ui_ingressar() {
+        let v = Number(document.getElementById("valor").value);
+        let d = document.getElementById("data").value;
+        cuenta.ingressar(Math.abs(v), d);
+      }
+      function ui_retirar() {
+        let v = Number(document.getElementById("valor").value);
+        let d = document.getElementById("data").value;
+        cuenta.retirar(Math.abs(v), d);
+      }
+      function ui_llistar() {
+          let ui = document.getElementById("llistat");
+          cuenta.llistar(ui);
+      }
+    </script>
+  </body>
+</html>
